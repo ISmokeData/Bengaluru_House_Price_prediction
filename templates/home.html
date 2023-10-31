@@ -1,0 +1,27 @@
+<html>
+<body>
+    <div class="login">
+       <h1>House Prediciton</h1>
+   
+        <!-- Main Input For Receiving Query to our ML -->
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <label for="cars">Location:</label>
+        <select class="selectpicker form-control" id="location" name="location" required="1">
+            {% for location in locations %}
+                <option value="{{location}}">{{location}}</option> 
+            {% endfor %}
+        </select>
+        <br>
+           <input type="text" name="sqft" placeholder="sqft" required="required" /><br>
+           <input type="text" name="bath" placeholder="bath" required="required" /><br>
+           <input type="text" name="bhk" placeholder="bhk" required="required" /><br>
+   
+   
+   
+           <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+       </form>
+    <h2>
+       THE FWI prediction is {{result}}
+    </h2>
+   <body>
+</html>
